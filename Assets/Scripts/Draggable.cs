@@ -15,14 +15,18 @@ public class Draggable : MonoBehaviour, IDragHandler, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         _RectTransform.SetAsLastSibling();
+        
+        PointerDown(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
        _RectTransform.anchoredPosition += eventData.delta / ScreenCanvas.Canvas.scaleFactor;
 
-       HandleDragEvent(eventData);
+       Drag(eventData);
     }
 
-    protected virtual void HandleDragEvent(PointerEventData eventData) { }
+    protected virtual void Drag(PointerEventData eventData) { }
+
+    protected virtual void PointerDown(PointerEventData eventData) { }
 }

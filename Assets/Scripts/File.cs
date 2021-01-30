@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class File : Draggable, IPointerUpHandler
 {
+    private const float _SecondClickTimeWindow = 0.3f;
+
     [SerializeField]
     private Text _FileNameDisplay;
 
@@ -18,10 +20,20 @@ public class File : Draggable, IPointerUpHandler
     private string _Text;
 
     private Vector2 _LastMousePosition;
+
+    private float _LastClickTime;
  
     void Start()
     {
         _FileNameDisplay.text = _FileName;
+    }
+
+    protected override void PointerDown(PointerEventData eventData)
+    {
+        if(eventData.clickCount >= 2)
+        {
+            //
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)

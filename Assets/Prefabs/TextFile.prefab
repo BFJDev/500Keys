@@ -204,5 +204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _FileNameDisplay: {fileID: 6955704107542626058}
   _FileName: name.txt
+  _FileType: 0
   _Image: {fileID: 0}
   _Text: 

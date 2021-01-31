@@ -1,10 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
+/// <summary>
+/// Fake File Manager that uses Unity's built in hiearchy system 
+/// 
+/// Of note: 
+/// </summary>
 public class FileManager : MonoBehaviour
 {
-    Transform currLevel = null;
+    Transform currFolder = null;
     Transform root = null;
     Transform desktop = null;
 
@@ -12,49 +16,91 @@ public class FileManager : MonoBehaviour
     {
         desktop = GameObject.Find("Desktop").GetComponent<Transform>();
         root = GameObject.Find("Root").GetComponent<Transform>();
-        currLevel = root;
+        currFolder = root;
     }
 
-    public void ChangeLevel(Transform folder)
+    public void ChangeLevel(Transform newFolder)
     {
+        // Hide current level
+        HideCurrFolder();
         // Display new level
-        DisplayFolder(folder);
-        // Hide previous 
-        HideFolder(folder); // Note: z-order won't really matter since we're only switching b/w 2 views
+        if(!newFolder.Equals(root))
+        {
+            DisplayNewFolder(newFolder);
+        } else {
+            DisplayRoot();
+        }
         // Update reference
-        currLevel = folder;
+        currFolder = newFolder;
     }
 
-    // Make all children of selected level active
-    public void DisplayFolder(Transform folder)
+    public void GoUpOneLevel()
     {
-        foreach (Transform child in folder)
+        if (!currFolder.Equals(root))
         {
-            child.gameObject.SetActive(true);
-            // Make sure file name gets shown
-            if (child.childCount > 0)
-            {
-                child.GetChild(0).gameObject.SetActive(true); 
-            }           
+            ChangeLevel(currFolder.parent.transform);
         }
     }
 
-    // Deactivate all the files in the current level EXCEPT the one we just opened
-    public void HideFolder(Transform folderToSkip)
+    public void MoveToDesktop(GameObject obj)
     {
-        foreach (Transform child in currLevel)
+        // This method is the same as setting the transform.parent property 
+        // except that it also lets the Transform keep its local orientation rather than its global orientation.
+        obj.transform.SetParent(desktop);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Deactivate all the files in the current level
+    private void HideCurrFolder()
+    {
+        foreach (Transform child in currFolder)
         {
-            if(!child.transform.Equals(folderToSkip))
+            child.gameObject.SetActive(false);
+        }
+    }
+
+
+    // Make all children of the new level active
+    private void DisplayNewFolder(Transform folder)
+    {
+        // Need to make base folder active for children, but also hide it's image/text
+        folder.gameObject.SetActive(true);
+        
+        // Set each child in the first depth to active
+        for(var i = 0; i < folder.childCount; i++)
+        {
+            Transform child = folder.GetChild(i);
+            child.gameObject.SetActive(i > 1); // Set to TRUE if it's not the image/text of the curr folder
+            
+            // Now make sure you show the image/text of each child
+            if (child.childCount > 0)
             {
-                child.gameObject.SetActive(false);
+                child.GetChild(0).gameObject.SetActive(true);
+                child.GetChild(0).GetComponent<Image>().enabled = true;
+
+                child.GetChild(1).gameObject.SetActive(true);
+                child.GetChild(1).GetComponent<Text>().enabled = true;
             }
         }
     }
 
-    public void MoveToDesktop(GameObject obj) { 
-        // This method is the same as setting the transform.parent property 
-        // except that it also lets the Transform keep its local orientation rather than its global orientation.
-        obj.transform.SetParent(desktop);
+    // Same as DisplayNewFolder except it doesn't have to worry about the first 2 children
+    private void DisplayRoot()
+    {
+        foreach (Transform child in root)
+        {
+            child.gameObject.SetActive(true);
+            // Now make sure you show the image/text of each child
+            if (child.childCount > 0)
+            {
+                child.GetChild(0).gameObject.SetActive(true);
+                child.GetChild(0).GetComponent<Image>().enabled = true;
+
+                child.GetChild(1).gameObject.SetActive(true);
+                child.GetChild(1).GetComponent<Text>().enabled = true;
+            }
+        }
     }
 }
 

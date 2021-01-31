@@ -31,6 +31,7 @@ public class PentacleSlot : MonoBehaviour, IDropHandler
             PiecesFound++;
             _Images[index].sprite = file.Image;
             _Images[index].gameObject.SetActive(true);
+            Destroy(file.gameObject);
             index++;
         }
     }

@@ -38,6 +38,7 @@ public class File : Draggable
 
     protected override void PointerDown(PointerEventData eventData)
     {
+        _RectTransform.SetAsLastSibling();
         float time = Time.time - _LastClickTime;
         if (time <= _MaxTimeBetweenClicks)
         {

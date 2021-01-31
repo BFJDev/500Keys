@@ -17,11 +17,6 @@ public class AntivirusWindow : Draggable
 
     public GameManager gm;
 
-    void Awake()
-    {
-        _CloseButton.onClick.AddListener( () => gameObject.SetActive(false));
-    }
-
     void Update()
     {
         if (_HasCompleted == false && _PentacleSlot.PiecesFound == 5)

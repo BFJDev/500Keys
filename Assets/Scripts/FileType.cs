@@ -2,5 +2,6 @@
 {
     txt,
     img,
-    folder
+    folder,
+    corrupted
 }

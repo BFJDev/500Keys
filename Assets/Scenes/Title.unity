@@ -1055,8 +1055,13 @@ MonoBehaviour:
     -Click on the "Up One
     Folder" to go back
 
-    -Find all the missing pentagram pieces and drag them
-    to the anti-virus window!'
+    -Delete any Corrupted files to save some precious time
+
+    -Find
+    all the missing pentagram files and drag them to the anti-virus window (the file,
+    not the image silly)
+
+'
 --- !u!222 &1925266922
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -76,7 +76,13 @@ public class FileManager : MonoBehaviour
             if (child.childCount > 0)
             {
                 child.GetChild(0).gameObject.SetActive(true);
-                child.GetChild(0).GetComponent<Image>().enabled = true;
+                Image img = child.GetChild(0).GetComponent<Image>();
+                if (img != null)
+                {
+                    img.enabled = true;
+                }
+
+                
 
                 child.GetChild(1).gameObject.SetActive(true);
                 child.GetChild(1).GetComponent<Text>().enabled = true;

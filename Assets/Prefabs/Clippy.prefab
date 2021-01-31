@@ -92,7 +92,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 909546040996119486}
+  - component: {fileID: 4535791056807821603}
   - component: {fileID: 909546040996119487}
   - component: {fileID: 909546040996119456}
   - component: {fileID: 3701075561500920584}
@@ -103,8 +103,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &909546040996119486
-Transform:
+--- !u!224 &4535791056807821603
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,6 +118,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 19.602253, y: 18.400002}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &909546040996119487
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -310,7 +315,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 8631395147229631108}
-  m_Father: {fileID: 909546040996119486}
+  m_Father: {fileID: 4535791056807821603}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

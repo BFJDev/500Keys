@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class File : Draggable
 {
+    private const float _MaxTimeBetweenClicks = 0.4f;
+
     [SerializeField]
     private Text _FileNameDisplay;
 
@@ -19,9 +21,7 @@ public class File : Draggable
     [SerializeField]
     private string _Text;
 
-    private Vector2 _LastMousePosition;
-
-    private float _LastClickTime;
+    private float _LastClickTime = 0f;
 
     public string FileName => _FileName;
 
@@ -38,10 +38,12 @@ public class File : Draggable
 
     protected override void PointerDown(PointerEventData eventData)
     {
-        if(eventData.clickCount >= 2)
+        float time = Time.time - _LastClickTime;
+        if (time <= _MaxTimeBetweenClicks)
         {
             FileContentDisplayWindow displayWindow = FileContentDisplayWindow.DisplayWindow;
             displayWindow.DisplayFile(this);
         }
+        _LastClickTime = Time.time;
     }
 }

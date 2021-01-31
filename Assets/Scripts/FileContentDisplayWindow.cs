@@ -19,6 +19,8 @@ public class FileContentDisplayWindow : MonoBehaviour
     [SerializeField]
     private Button _CloseButton;
 
+    public event System.Action<File> FileOpened;
+
     void Awake()
     {
         if(DisplayWindow == null)
@@ -50,5 +52,7 @@ public class FileContentDisplayWindow : MonoBehaviour
             _Image.gameObject.SetActive(false);
             _Text.text = file.Text;
         }
+
+        FileOpened?.Invoke(file);
     }
 }

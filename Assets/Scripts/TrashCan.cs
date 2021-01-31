@@ -1,21 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TrashCan : Overlappable
+public class TrashCan : MonoBehaviour, IDropHandler
 {
-    public override void FileOverlapStarted()
+    public VirusBar2 virusbar;
+    public void OnDrop(PointerEventData data)
     {
-
-    }
-
-    public override void FileOverlapEnded()
-    {
-
-    }
-
-    public override void HandleOverlappingFileReleased(File file)
-    {
-        file.gameObject.SetActive(false);
+        File file = data.pointerDrag.GetComponent<File>();
+        if(file != null)
+        {
+            file.gameObject.SetActive(false);
+        }
+        if(file.FileType.Equals(FileType.corrupted))
+        {
+            virusbar.slider.value -= 5;
+        }
     }
 }

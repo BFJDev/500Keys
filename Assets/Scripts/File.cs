@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class File : Draggable, IPointerUpHandler
+public class File : Draggable
 {
+    private const float _MaxTimeBetweenClicks = 0.4f;
+
     [SerializeField]
     private Text _FileNameDisplay;
 
@@ -20,9 +21,7 @@ public class File : Draggable, IPointerUpHandler
     [SerializeField]
     private string _Text;
 
-    private Vector2 _LastMousePosition;
-
-    private float _LastClickTime;
+    private float _LastClickTime = 0f;
 
     public string FileName => _FileName;
 
@@ -39,27 +38,13 @@ public class File : Draggable, IPointerUpHandler
 
     protected override void PointerDown(PointerEventData eventData)
     {
-        if(eventData.clickCount >= 2)
+        _RectTransform.SetAsLastSibling();
+        float time = Time.time - _LastClickTime;
+        if (time <= _MaxTimeBetweenClicks)
         {
             FileContentDisplayWindow displayWindow = FileContentDisplayWindow.DisplayWindow;
             displayWindow.DisplayFile(this);
         }
+        _LastClickTime = Time.time;
     }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-    /*    foreach( GameObject hovered in eventData.hovered)
-        {
-            Overlappable overlappedObject = hovered.GetComponent<Overlappable>();
-            if(overlappedObject != null)
-            {
-                overlappedObject.HandleOverlappingFileReleased(this);
-                break;
-            }
-        }
-*/
-    }
-
-
-
 }

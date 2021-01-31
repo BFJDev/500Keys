@@ -15,6 +15,8 @@ public class AntivirusWindow : Draggable
 
     private bool _HasCompleted = false;
 
+    public GameManager gm;
+
     void Awake()
     {
         _CloseButton.onClick.AddListener( () => gameObject.SetActive(false));
@@ -22,10 +24,12 @@ public class AntivirusWindow : Draggable
 
     void Update()
     {
-        if(_HasCompleted == false && _PentacleSlot.PiecesFound == 5)
+        if (_HasCompleted == false && _PentacleSlot.PiecesFound == 5)
         {
             _HasCompleted = true;
             Completed?.Invoke();
+
+            gm.EndGame(true);
         }
     }
 }

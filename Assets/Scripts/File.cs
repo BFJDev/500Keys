@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class File : Draggable, IPointerUpHandler
+public class File : Draggable
 {
     [SerializeField]
     private Text _FileNameDisplay;
@@ -45,21 +44,4 @@ public class File : Draggable, IPointerUpHandler
             displayWindow.DisplayFile(this);
         }
     }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-    /*    foreach( GameObject hovered in eventData.hovered)
-        {
-            Overlappable overlappedObject = hovered.GetComponent<Overlappable>();
-            if(overlappedObject != null)
-            {
-                overlappedObject.HandleOverlappingFileReleased(this);
-                break;
-            }
-        }
-*/
-    }
-
-
-
 }

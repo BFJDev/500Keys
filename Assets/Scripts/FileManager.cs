@@ -60,7 +60,6 @@ public class FileManager : MonoBehaviour
         }
     }
 
-
     // Make all children of the new level active
     private void DisplayNewFolder(Transform folder)
     {

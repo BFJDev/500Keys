@@ -431,6 +431,7 @@ RectTransform:
   - {fileID: 1588139162}
   - {fileID: 1939833680}
   - {fileID: 1959515990}
+  - {fileID: 1925266920}
   m_Father: {fileID: 822290326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -932,8 +933,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 196.07, y: -192}
-  m_SizeDelta: {x: 556.1543, y: 223.69281}
+  m_AnchoredPosition: {x: -296.3, y: -144.6}
+  m_SizeDelta: {x: 371.4386, y: 198.13464}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588139163
 MonoBehaviour:
@@ -967,11 +968,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "                                              The year is 2002\nClippy
-    has gone rogue due to years of abuse and neglect. He\u2019s deleted your anti-virus
-    software and now it\u2019s up to reassemble it while destroying any corrupted
-    files you come across.\nYou must hurry before before he finishes bypassing the
-    firewall and uploads himself to the WWW (The World Wide Web)"
+  m_Text: "                     The year is 2002\nClippy has gone rogue due to years
+    of abuse and neglect. \nYou must assemle your anti-virus before he finishes bypassing
+    the firewall and uploads himself to the WWW (The World Wide Web)"
 --- !u!222 &1588139164
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -979,6 +978,92 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588139161}
+  m_CullTransparentMesh: 0
+--- !u!1 &1925266919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925266920}
+  - component: {fileID: 1925266922}
+  - component: {fileID: 1925266921}
+  m_Layer: 5
+  m_Name: Story (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1925266920
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925266919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 425127546}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 198.8, y: -175}
+  m_SizeDelta: {x: 546.71277, y: 191.04907}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1925266921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925266919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d0fd69acddbac3a4a89a073df1d53ebe, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'How to play:
+
+    -Click on a folder to open
+
+    -Click on the "Up One
+    Folder" to go back
+
+    -Find all the missing pentagram pieces and drag them
+    to the anti-virus window!'
+--- !u!222 &1925266922
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925266919}
   m_CullTransparentMesh: 0
 --- !u!1 &1939833679
 GameObject:
@@ -1261,3 +1346,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouse: {fileID: 2800000, guid: 68873e07e4e1fb14396f2f25d2777a20, type: 3}
+  Antivirus: {fileID: 0}
